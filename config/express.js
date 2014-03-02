@@ -96,6 +96,15 @@ module.exports = function(db) {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
+	var render = require('mean-seo').create({
+		type: 'disk', //or redis
+		duration: 2, //in days
+		path: '/tmp/cache' //make sure this directory exists
+	});
+
+	console.log(render);
+	// app.use(render);
+
 	// connect flash for flash messages
 	app.use(flash());
 
