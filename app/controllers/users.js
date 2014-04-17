@@ -35,7 +35,6 @@ var getErrorMessage = function (err) {
 exports.signup = function (req, res) {
     // Init Variables
     var user = new User(req.body);
-    var message = null;
 
     // Add missing user fields
     user.provider = 'local';
@@ -91,7 +90,6 @@ exports.signin = function (req, res, next) {
 exports.update = function (req, res) {
     // Init Variables
     var user = req.user;
-    var message = null;
 
     if (user) {
         // Merge existing user
@@ -124,10 +122,9 @@ exports.update = function (req, res) {
 /**
  * Change Password
  */
-exports.changePassword = function (req, res, next) {
+exports.changePassword = function (req, res) {
     // Init Variables
     var passwordDetails = req.body;
-    var message = null;
 
     if (req.user) {
         User.findById(req.user.id, function (err, user) {
@@ -197,7 +194,7 @@ exports.me = function (req, res) {
  */
 exports.oauthCallback = function (strategy) {
     return function (req, res, next) {
-        passport.authenticate(strategy, function (err, user, email) {
+        passport.authenticate(strategy, function (err, user) {
             if (err || !user) {
                 console.log(err);
                 return res.redirect('/#!/signin');

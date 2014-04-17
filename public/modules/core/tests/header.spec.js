@@ -1,3 +1,4 @@
+/* global ApplicationConfiguration */
 'use strict';
 
 (function () {
