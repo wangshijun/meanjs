@@ -60,6 +60,9 @@ module.exports = function (db) {
         // Enable logger
         app.use(express.logger('dev'));
 
+        // live reload
+        app.use(require('connect-livereload')());
+
         // Disable views cache
         app.set('view cache', false);
     });
