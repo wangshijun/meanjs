@@ -8,11 +8,11 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
         $scope.menu = [{
             title: 'Articles',
             link: 'articles',
-            uiRoute: '/articles'
+            route: '/articles'
         }, {
             title: 'New Article',
             link: 'articles/create',
-            uiRoute: '/articles/create'
+            route: '/articles/create'
         }];
 
         $scope.toggleCollapsibleMenu = function () {
