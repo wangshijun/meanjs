@@ -10,7 +10,7 @@
     </div>
     <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
         <ul class="nav navbar-nav" data-ng-show="authentication.user">
-            <li data-ng-repeat="item in menu" data-ng-show="authentication.user" data-match-route="/{{item.link}}" ui-shref="{{item.route}}" ng-class="{active: $uiRoute}">
+            <li data-ng-repeat="item in menu" data-ng-show="authentication.user" data-match-route="/{{item.link}}" ui-shref="{{item.route}}">
                 <a href="/#!/{{item.link}}">{{item.title}}</a>
             </li>
         </ul>
